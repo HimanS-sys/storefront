@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,8 +87,12 @@ WSGI_APPLICATION = "storefront.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'HOST': os.environ.get('DB_HOSTNAME'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PORT': os.environ.get('DB_PORT'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
     }
 }
 
