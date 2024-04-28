@@ -19,7 +19,7 @@ class Product(models.Model):
         null = True,
     )
     description = models.TextField()
-    price = models.DecimalField(
+    unit_price = models.DecimalField(
         max_digits = 6,
         decimal_places = 2,
         )
@@ -44,7 +44,7 @@ class Customer(models.Model):
         (MEMBERSHIP_SILVER, "Silver"),
         (MEMBERSHIP_BRONZE, "Bronze"),
     ]
-    givenname = models.CharField(max_length = 255)
+    firstname = models.CharField(max_length = 255)
     lastname = models.CharField(max_length = 255)
     email = models.EmailField(unique = True)
     phone = models.CharField(max_length = 255)
@@ -57,7 +57,7 @@ class Customer(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields = ["lastname", "givenname"])
+            models.Index(fields = ["lastname", "firstname"])
         ] 
 
 class Order(models.Model):
