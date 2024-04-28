@@ -44,7 +44,7 @@ class Customer(models.Model):
         (MEMBERSHIP_SILVER, "Silver"),
         (MEMBERSHIP_BRONZE, "Bronze"),
     ]
-    firstname = models.CharField(max_length = 255)
+    givenname = models.CharField(max_length = 255)
     lastname = models.CharField(max_length = 255)
     email = models.EmailField(unique = True)
     phone = models.CharField(max_length = 255)
@@ -57,7 +57,7 @@ class Customer(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields = ["lastname", "firstname"])
+            models.Index(fields = ["lastname", "givenname"])
         ] 
 
 class Order(models.Model):

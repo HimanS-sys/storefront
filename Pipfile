@@ -6,7 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 django-debug-toolbar = "*"
+<<<<<<< HEAD
 mysqlclient = "*"
+=======
+psycopg2-binary = "*"
+>>>>>>> f27e35b22f046eae26fdba31dc65cb99919313dd
 
 [dev-packages]
 
