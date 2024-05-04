@@ -13,6 +13,11 @@ class Collection(models.Model):
         related_name = "+",
     )
 
+    def __str__(self) -> str:
+        return self.title
+    class Meta:
+        ordering = ["title"]
+
 class Product(models.Model):
     title = models.CharField(max_length = 255)
     slug = models.SlugField(
@@ -35,6 +40,12 @@ class Product(models.Model):
         related_name = "products",
     )
 
+    def __str__(self) -> str:
+        return self.title
+    
+    class Meta:
+        ordering = ["title"]
+
 class Customer(models.Model):
     MEMBERSHIP_GOLD = "G"
     MEMBERSHIP_SILVER = "S"
@@ -55,10 +66,13 @@ class Customer(models.Model):
         default = MEMBERSHIP_BRONZE,
     )
 
+    def __str__(self) -> str:
+        return f"{self.firstname} {self.lastname}"
+
     class Meta:
         indexes = [
             models.Index(fields = ["lastname", "firstname"])
-        ] 
+        ]
 
 class Order(models.Model):
     placed_at = models.DateTimeField(auto_now_add = True)
