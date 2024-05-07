@@ -5,15 +5,19 @@ from store import views
 urlpatterns = [
     path(
         "products/",
-        views.product_list,
+        views.ProductList.as_view(),
     ),
     path(
         "products/<int:pk>/",
-        views.product_detail,
+        views.ProductDetail.as_view(),
     ),
     path(
-        "collections/<int:pk>",
-        views.collection_detail,
+        "collections/",
+        views.CollectionList.as_view(),
+    ),
+    path(
+        "collections/<int:pk>/",
+        views.CollectionDetail.as_view(),
         name = "collection-detail",
     ),
 ]
